@@ -27,4 +27,7 @@ setCounter(prevCounter=> prevCounter + 1) //we can right it ese bhi
 ...onclick needs a call back function i.e the project bg changer
 
 
+...remember the key in react when we use a loop in jsx must use key 
+
+
 
