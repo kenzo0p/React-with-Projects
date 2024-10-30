@@ -24,3 +24,7 @@ setCounter(prevCounter=> prevCounter + 1) //we can right it ese bhi
 
 
 
+...onclick needs a call back function i.e the project bg changer
+
+
+
