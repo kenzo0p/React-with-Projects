@@ -30,4 +30,7 @@ setCounter(prevCounter=> prevCounter + 1) //we can right it ese bhi
 ...remember the key in react when we use a loop in jsx must use key 
 
 
+...loader i react router to fetch usrl directly in route 
+
+
 
