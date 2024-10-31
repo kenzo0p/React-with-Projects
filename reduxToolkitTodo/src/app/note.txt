@@ -1,0 +1,2 @@
+2-import configure store 
+3-createSlice , nanoId = for unique id 
