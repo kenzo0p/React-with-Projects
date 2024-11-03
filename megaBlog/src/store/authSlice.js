@@ -5,10 +5,6 @@ const initialState = {
     userDate: null
 }
 
-
-
-
-
 const authSlice = createSlice({
     name: "auth",
     initialState,
