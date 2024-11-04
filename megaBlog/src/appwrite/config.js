@@ -1,5 +1,5 @@
-import conf from "../../conf/conf.js"
 import { Client, Databases, ID, Storage, Query } from "appwrite"
+import conf from "../conf/conf";
 
 export class Service {
     client = new Client();
@@ -19,8 +19,8 @@ export class Service {
     async createPost({ title, slug, content, fearuredImage, status, userId }) {
         try {
             return await this.databases.createDocument(
-                conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteDatabaseID,
+                conf.appwriteCollectionID,
                 slug,
                 {
                     title,
@@ -38,8 +38,8 @@ export class Service {
     async updatePost(slug, { title, content, fearuredImage, status, }) {
         try {
             return await this.databases.updateDocument(
-                conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteDatabaseID,
+                conf.appwriteCollectionID,
                 slug,
                 {
                     title,
@@ -56,8 +56,8 @@ export class Service {
     async deletePost(slug) {
         try {
             await this.databases.deleteDocument(
-                conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteDatabaseID,
+                conf.appwriteCollectionID,
                 slug,
 
 
@@ -72,8 +72,8 @@ export class Service {
     async getPost(slug) {
         try {
            return await this.databases.getDocument(
-                conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteDatabaseID,
+                conf.appwriteCollectionID,
                 slug,
 
             )
@@ -87,8 +87,8 @@ export class Service {
     async getAllPOsts(queries = [Query.equal("status" , "active")]){ 
         try {
             return await this.databases.listDocuments(
-                conf.appwriteDatabaseId,
-                conf.appwriteCollectionId,
+                conf.appwriteDatabaseID,
+                conf.appwriteCollectionID,
                 queries,
             )
         } catch (error) {
