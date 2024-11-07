@@ -1,3 +1,5 @@
 1 :- conf folder is used to store env variables i.e if we want any env variable we can directly get it from it. for resolving errors and here we are parsing it to string bcoz env are need to be in string
 
 2:- in this step we are making an folder for our appwrite service and there is authetication file auth.js for authentication and in appwrite folder we have user authentication and database service to store articles like that
+
+3:-config.js in appwrite where we are building for our datbases like for string our databases

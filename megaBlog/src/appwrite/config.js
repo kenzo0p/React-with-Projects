@@ -4,7 +4,7 @@ import conf from "../conf/conf";
 export class Service {
     client = new Client();
     databases;
-    storage;
+    bucket;//can also use storage here
 
 
     constructor() {
@@ -12,7 +12,7 @@ export class Service {
             .setEndpoint(conf.appwriteUrl)
             .setProject(conf.appwriteProjectID);
         this.databases = new Databases(this.client)
-        this.storage = new Storage(this.client)
+        this.bucket = new Storage(this.client)
     }
 
 
@@ -74,7 +74,7 @@ export class Service {
            return await this.databases.getDocument(
                 conf.appwriteDatabaseID,
                 conf.appwriteCollectionID,
-                slug,
+                slug
 
             )
             return true;
@@ -84,7 +84,7 @@ export class Service {
         }
     }
 
-    async getAllPOsts(queries = [Query.equal("status" , "active")]){ 
+    async getPosts(queries = [Query.equal("status" , "active")]){
         try {
             return await this.databases.listDocuments(
                 conf.appwriteDatabaseID,
@@ -92,7 +92,7 @@ export class Service {
                 queries,
             )
         } catch (error) {
-            console.log("APPWRITE SERVICE :: GETALLPOST :: ERROR", error)
+            console.log("APPWRITE SERVICE :: GETALLPOSTS :: ERROR", error)
             return false
         }
     }
@@ -102,7 +102,7 @@ export class Service {
 
     async uploadFile(file){
         try {
-            return await this.storage.createFile(
+            return await this.bucket.createFile(
                 conf.appwriteBucketID,
                 ID.unique(),
                 file
@@ -114,7 +114,7 @@ export class Service {
     }
     async deleteFile(fileId){
         try {
-            return await this.storage.deleteFile(
+            return await this.bucket.deleteFile(
                 conf.appwriteBucketID,
                 fileId
             )
@@ -126,7 +126,7 @@ export class Service {
     }
 
     getFilePreview(fileId){
-        return this.storage.getFilePreview(
+        return this.bucket.getFilePreview(
             conf.appwriteBucketID,
             fileId
         )
