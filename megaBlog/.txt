@@ -3,3 +3,7 @@
 2:- in this step we are making an folder for our appwrite service and there is authetication file auth.js for authentication and in appwrite folder we have user authentication and database service to store articles like that
 
 3:-config.js in appwrite where we are building for our datbases like for string our databases
+
+4:-Configuring redux toolkit i.e we are setting up our store using redux toolkit , in store folder => redux toolkit
+
+5:-components =>

@@ -6,8 +6,6 @@ import { Button, Input, Logo } from './index'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 
-
-
 function SignUp() {
     const navigate = useNavigate()
     const dispatch = useDispatch()

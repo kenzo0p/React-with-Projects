@@ -24,7 +24,7 @@ function App() {
         }
       })
       .catch((error) => {
-        console.log("ERROR IN AUTHSERVICE", error)
+        console.log("ERROR IN AUTHSERVICE:DURING GETTING USER", error)
       })
       .finally(() => setLoading(false))
   }, [])
