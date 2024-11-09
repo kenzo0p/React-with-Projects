@@ -27,32 +27,32 @@ function PostForm({ post }) {
 
             const dbPost = await appwriteService.updatePost(post.$id, {
                 ...data,
-                fearuredImage: file ? file.$id : post.undefined
+                featuredImage: file ? file.$id : undefined,
             })
 
             if (dbPost) {
                 navigate(`/post/${dbPost.$id}`)
             }
 
-        } else {
-            const file = await appwriteService.uploadFile(data.image[0])
+            } else {
+                const file = await appwriteService.uploadFile(data.image[0])
 
-            if (file) {
-                const fileId = file.$id
-                data.fearuredImage = fileId
-                const dbPost = await appwriteService.createPost({
-                    ...data,
-                    userId: userData.$id
-                })
-                if (dbPost) {
-                    navigate(`/post/${dbPost.$id}`)
-                }
+                 if (file) {
+                    const fileId = file.$id
+                    data.featuredImage = fileId
+                    const dbPost = await appwriteService.createPost({
+                        ...data,
+                        userId: user.$id
+                    })
+                    if (dbPost) {
+                        navigate(`/post/${dbPost.$id}`)
+                    }
 
+                 }
             }
         }
 
 
-    }
     const slugTransform = useCallback((value) => {
         if (value && typeof value === 'string')
             return value
@@ -70,7 +70,7 @@ function PostForm({ post }) {
         const subscription = watch((value, { name }) => {
             if (name === 'title') {
                 setValue('slug', slugTransform(value.title,
-                    { shouldvalidate: true }))
+                    { shouldValidate: true }))
             }
         })
 
